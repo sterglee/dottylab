@@ -8,6 +8,9 @@ import scala.collection.JavaConverters.*;
 import scala.tools.nsc.Settings;
 import scalainterpreter.ScalaInterpreterPane;
 import java.net.URISyntaxException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.awt.*;
@@ -22,6 +25,8 @@ import java.net.URL;
 
 import java.util.regex.*;
 import scalaExec.gui.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import java.net.URLDecoder;
 
@@ -2440,6 +2445,36 @@ catch (Exception e) { e.printStackTrace(); }
         return patternMatches;
     }
 
+    public static String collectJarsFromFolder(String [] folderNames)  {
+        int numFolders = folderNames.length;
+
+        StringBuilder sb=new StringBuilder();
+        String sep = File.pathSeparator;
+
+
+        sb.append("ScalaLab.jar"+sep);
+          String isSlash = "/";
+        if (GlobalValues.hostIsWin64 || GlobalValues.hostIsWin)
+            isSlash = "\\";
+
+        for (int folders=0; folders<numFolders; folders++ ) {
+
+            String folderName = folderNames[folders];
+            Path path = Paths.get(folderName);
+            try (DirectoryStream<Path> ds = Files.newDirectoryStream(path)) {
+                for (Path file : ds) {
+                    String filename = file.getFileName().toString();
+                    if (filename.endsWith(".jar"))
+                        sb.append(folderName + isSlash + filename + sep);
+                }
+            } catch (Exception e) {
+            }
+
+        }
+       return sb.toString();
+
+    }
+
     public static void detectJarLibPaths(String watchStr) {
         if (File.pathSeparatorChar == ';') {  // handle Windows file system naming
             int idxOfColon = watchStr.lastIndexOf(':');
@@ -2707,10 +2742,16 @@ catch (Exception e) { e.printStackTrace(); }
                 }
             }
         }
-      //  JOptionPane.showMessageDialog(null, "toolboxes = "+sb.toString());
-        if (GlobalValues.hostIsUnix) {
 
-            String myJavaClassPath = "ScalaLab.jar:libScala3/compiler-interface-1.3.5.jar:libScala3/dist_3-3.1.0.jar:libScala3/scala-library-2.13.6.jar:" +
+        // SOSSOS
+        String [] libFolders = {"lib", "libScala3", "extralib"};
+        String myJavaClassPath = collectJarsFromFolder(libFolders);
+      //  JOptionPane.showMessageDialog(null, "toolboxes = "+sb.toString());
+    /*    if (GlobalValues.hostIsUnix) {
+
+
+
+           String myJavaClassPath = "ScalaLab.jar:libScala3/compiler-interface-1.3.5.jar:libScala3/dist_3-3.1.0.jar:libScala3/scala-library-2.13.6.jar:" +
                     "libScala3/scala-swing_2.13-2.1.1.jar:libScala3/scala3-compiler_3-3.1.0.jar:" +
                     "libScala3/scala3-library_3-3.1.0.jar:lib/ApacheCommonMaths.jar:lib/apidoc.jar:lib/arpack_combo-0.1.jar:lib/ejml.jar:lib/f2jutil.jar:lib/fjbg.jar:" +
                     "lib/funclate-131.jar:lib/google-guava.jar:lib/JASYMCA.jar:lib/jcommon-1.0.23.jar:lib/JFreeChart.jar:lib/JFreeCommon.jar:lib/jfreesvg.jar:lib/jgraph.jar:" +
@@ -2729,9 +2770,9 @@ catch (Exception e) { e.printStackTrace(); }
                     "lib\\MTJColtSGTJCUDA.jar;lib\\netlib-java-0.9.3.jar;lib\\NumericalRecipesNUMAL.jar;lib\\objenesis-1.2.jar;lib\\optimization.jar;lib\\orsonpdf-1.7.jar;lib\\PDFRenderer.jar;" +
                     "lib\\RSyntaxTextArea.jar;lib\\txt2xhtml.jar;lib\\xmlgraphics-commons.jar;extralib\\javacpp.jar;extralib\\openblas-platform.jar;extralib\\openblas.jar";
 
-
+*/
             System.setProperty("java.class.path", myJavaClassPath+sb.toString());
-        }
+
         String javaclasspath = System.getProperty("java.class.path");
         //System.out.println( "java class path = "+javaclasspath);
 
