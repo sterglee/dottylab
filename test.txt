@@ -1,0 +1,20 @@
+       // Type ScalaLab code here (use `Configuration` menu to control the presentation of this startup text). 
+//  Press  F6 (or Ctrl-E, or CTRL-X, or select the right mouse-click popup menu execute option) to execute selected text  or current line (within the Event Dispatch Thread - Is more reliable but Swing is frozen until command completes) 
+//  Press Shift-F6     to execute selected text  or current line in non-blocking mode (i.e. not in the Event Dispatch Thread) 
+//  Press F5 to clear the output console 
+//  Mouse Double Click on an identifier: Displays its value 
+//  Mouse cursor over an identifier displays information for that identifier 
+//   Press F7 uses code completion of the Scala Completer, can be used also for package completion, e.g. javax.<F7> displays the contents of package javax 
+//   Press F7-F7 (i.e. two times F7) after a method name displays the full method's signature 
+//  Press  F4 on an identifier. Presents a completion list, if a dot exists the results are filtered, 
+//    e.g.   with:  "var jf=new JFrame("Frame"); jf.setV", filters only methods starting with "setV" 
+//  Press Shift-F4 on a type (e.j. javax.swing.JFrame). Presents the constructors, methods and fields of the type with a JTree) 
+//  Selecting text (e.g. "svd") and pressing F1, displays a completion frame on available relevant methods 
+//  Press Ctrl-F6 to cancel the currently executed command  
+//  Press F2 to execute code up to cursor position     
+//  Press Control-Space  uses code completion of jsyntaxpane 
+//  Press TAB expands the abbreviation internal to the jsyntaxpane, e.g. bo<TAB> expands to Boolean (F8 displays these abbreviations) 
+//  Press F11: expands the selected text with the abbreviations specified with the Abbreviations.txt file   
+//  Press F12 to close all displayed figures 
+
+var xx = scalaExec.Interpreter.GlobalValues.scala3Engine.eval("var ff=88")

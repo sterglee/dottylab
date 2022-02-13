@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Main-Class: scalaExec.scalaLab.scalaLab
+Class-Path: libscala3/ST4-4.0.7.jar libscala3/antlr-3.5.1.jar libscala3/
+ antlr-runtime-3.5.1.jar libscala3/autolink-0.6.0.jar libscala3/compiler
+ -interface-1.3.5.jar libscala3/dist_3-3.0.0.jar libscala3/flexmark-0.42
+ .12.jar libscala3/flexmark-ext-anchorlink-0.42.12.jar libscala3/flexmar
+ k-ext-autolink-0.42.12.jar libscala3/flexmark-ext-emoji-0.42.12.jar lib
+ scala3/flexmark-ext-gfm-strikethrough-0.42.12.jar libscala3/flexmark-ex
+ t-gfm-tables-0.42.12.jar libscala3/flexmark-ext-gfm-tasklist-0.42.12.ja
+ r libscala3/flexmark-ext-ins-0.42.12.jar libscala3/flexmark-ext-supersc
+ ript-0.42.12.jar libscala3/flexmark-ext-tables-0.42.12.jar libscala3/fl
+ exmark-ext-wikilink-0.42.12.jar libscala3/flexmark-ext-yaml-front-matte
+ r-0.42.12.jar libscala3/flexmark-formatter-0.42.12.jar libscala3/flexma
+ rk-html-parser-0.42.12.jar libscala3/flexmark-jira-converter-0.42.12.ja
+ r libscala3/flexmark-util-0.42.12.jar libscala3/jackson-annotations-2.2
+ .3.jar libscala3/jackson-core-2.9.8.jar libscala3/jackson-databind-2.2.
+ 3.jar libscala3/jackson-dataformat-yaml-2.9.8.jar libscala3/jline-reade
+ r-3.19.0.jar libscala3/jline-terminal-3.19.0.jar libscala3/jline-termin
+ al-jna-3.19.0.jar libscala3/jna-5.3.1.jar libscala3/jsoup-1.13.1.jar li
+ bscala3/liqp-0.6.7.jar libscala3/protobuf-java-3.7.0.jar libscala3/scal
+ a-asm-9.1.0-scala-1.jar libscala3/scala-library-2.13.5.jar libscala3/sc
+ ala-swing_2.13-2.1.1.jar libscala3/scala3-compiler_3-3.0.0.jar libscala
+ 3/scala3-interfaces-3.0.0.jar libscala3/scala3-library_3-3.0.0.jar libs
+ cala3/scala3-staging_3-3.0.0.jar libscala3/scala3-tasty-inspector_3-3.0
+ .0.jar libscala3/scaladoc_3-3.0.0.jar libscala3/snakeyaml-1.23.jar libs
+ cala3/tasty-core_3-3.0.0.jar libscala3/util-interface-1.3.0.jar lib/Apa
+ cheCommonMaths.jar lib/hamcrest-library-1.3.jar lib/JASYMCA.jar lib/ite
+ xt.jar lib/JFreeChart.jar lib/jSciJPlasmaJSparseJTransforms.jar lib/JFr
+ eeCommon.jar lib/jarjar-1.1.jar lib/LBFGS.jar lib/jcommon-1.0.23.jar li
+ b/MTJColtSGTJCUDA.jar lib/jdk6Help.jar lib/NumericalRecipesNUMAL.jar li
+ b/jfreesvg.jar lib/PDFRenderer.jar lib/jgraph.jar lib/RSyntaxTextArea.j
+ ar lib/jhall.jar lib/antlr-2.7.7.jar lib/jna-4.1.0.jar lib/apidoc.jar l
+ ib/jna-5.3.1.jar lib/arpack_combo-0.1.jar lib/jsearch.jar lib/asm-all-4
+ .1.jar lib/jsyntaxpane-1.1.5.jar lib/cglib-nodep-2.2.jar lib/junit-4.11
+ .jar lib/config.jar lib/matlabscilab.jar lib/diffutils.jar lib/netlib-j
+ ava-0.9.3.jar lib/ejml.jar lib/objenesis-1.2.jar lib/f2jutil.jar lib/op
+ timization.jar lib/fjbg.jar lib/orsonpdf-1.7.jar lib/funclate-131.jar l
+ ib/scalaHelp.jar lib/fxgraphics2d-1.5.jar lib/txt2xhtml.jar lib/google-
+ guava.jar lib/xmlgraphics-commons.jar lib/hamcrest-core-1.3.jar
+
