@@ -2746,6 +2746,7 @@ catch (Exception e) { e.printStackTrace(); }
         // SOSSOS
         String [] libFolders = {"lib", "libScala3", "extralib"};
         String myJavaClassPath = collectJarsFromFolder(libFolders);
+        System.out.println(myJavaClassPath);
       //  JOptionPane.showMessageDialog(null, "toolboxes = "+sb.toString());
     /*    if (GlobalValues.hostIsUnix) {
 
