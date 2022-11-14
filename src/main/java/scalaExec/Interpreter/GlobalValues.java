@@ -36,7 +36,7 @@ import scalalabEdit.*;
 // keeps important global definitions for ScalaLab
 public class GlobalValues {
 
-    static public String scalalabBuildVersiοn = " 13 - 2 - 2022 ";
+    static public String scalalabBuildVersiοn = " 14 - Nov - 2022 ";
 
     static public PrintStream consoleStream = null;
     static public javax.script.ScriptEngine scala3Engine=null;
