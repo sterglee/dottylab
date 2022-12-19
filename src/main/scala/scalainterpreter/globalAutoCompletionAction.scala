@@ -12,7 +12,7 @@ import scalaExec.gui.AutoCompletionFrame
 class globalAutoCompletionAction() extends javax.swing.AbstractAction() {
    
 
-      def actionPerformed(e: ActionEvent) {
+      def actionPerformed(e: ActionEvent) = {
             val selectedStr = scalaExec.Interpreter.GlobalValues.editorPane.getSelectedText
             if (selectedStr != null)  {
             if (GlobalValues.autocompletionEnabled == false)   {  // enable autocompletion on the first Ctrl-Space press
@@ -26,7 +26,7 @@ class globalAutoCompletionAction() extends javax.swing.AbstractAction() {
                  val detailHelpAdapter = new scalaExec.gui.autoCompleteListHandler
                  topLevelResultsList.addKeyListener(detailHelpAdapter)
                  topLevelResultsList.addListSelectionListener( new ListSelectionListener() {
-                   override def valueChanged(lse: ListSelectionEvent) {
+                   override def valueChanged(lse: ListSelectionEvent) = {
                      var selValue = topLevelResultsList.getSelectedValue().toString()
                      selValue = selValue.substring(selValue.indexOf(GlobalValues.smallNameFullPackageSeparator)+3, selValue.length())
                      GlobalValues.selectedStringForAutoCompletion = selValue

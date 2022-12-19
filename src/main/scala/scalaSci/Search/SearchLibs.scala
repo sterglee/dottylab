@@ -51,7 +51,7 @@ def  GUISearchLibs() = {
 buttonSearch.addActionListener ( new ActionListener {
   def actionPerformed( e: ActionEvent ) = {
 javax.swing.SwingUtilities.invokeLater(  new Runnable {
-                     def run {
+                     def run = {
              
    val   keywords  = getKeywords()
    
@@ -69,7 +69,7 @@ javax.swing.SwingUtilities.invokeLater(  new Runnable {
 buttonSearchMain.addActionListener ( new ActionListener {
   def actionPerformed( e: ActionEvent ) = {
    javax.swing.SwingUtilities.invokeLater(  new Runnable {
-                     def run {
+                     def run = {
       val   keywords  = getKeywords()
 
       var  results = searchMain(keywords)
@@ -85,7 +85,7 @@ buttonSearchMain.addActionListener ( new ActionListener {
 buttonSearchToolboxes.addActionListener ( new ActionListener {
   def actionPerformed( e: ActionEvent ) = {
 javax.swing.SwingUtilities.invokeLater(  new Runnable {
-                     def run {
+                     def run = {
              
    val   keywords  = getKeywords()
    var  results = searchToolboxes(keywords)

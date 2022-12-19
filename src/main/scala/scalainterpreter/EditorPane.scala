@@ -103,7 +103,7 @@ class EditorPane  extends  JPanel with CustomizableFont {
                  val detailHelpAdapter = new scalaExec.gui.autoCompleteListHandler
                  topLevelResultsList.addKeyListener(detailHelpAdapter)
                  topLevelResultsList.addListSelectionListener( new ListSelectionListener() {
-                   override def valueChanged(lse: ListSelectionEvent) {
+                   override def valueChanged(lse: ListSelectionEvent) = {
                      var selValue = topLevelResultsList.getSelectedValue().toString()
                      selValue = selValue.substring(selValue.indexOf(GlobalValues.smallNameFullPackageSeparator)+3, selValue.length())
                      GlobalValues.selectedStringForAutoCompletion = selValue
@@ -326,7 +326,7 @@ class EditorPane  extends  JPanel with CustomizableFont {
          
           
                  var r =   new Runnable {
-                     def run {
+                     def run ={
              recordAndInterpret(textToExec )
                         }
                    }
@@ -351,7 +351,7 @@ class EditorPane  extends  JPanel with CustomizableFont {
          if (ke.isShiftDown()) {
                  if (F6_consumed == false) {
                  var r =   new Runnable {
-                     def run {
+                     def run = {
             getSelectedTextOrCurrentLine.foreach( recordAndInterpret( _ ))
                         }
                    }
@@ -374,7 +374,7 @@ class EditorPane  extends  JPanel with CustomizableFont {
            { // F6 executes at the Event Dispatch Thread
                  if (F6_consumed == false) {
              javax.swing.SwingUtilities.invokeLater(  new Runnable {
-                     def run {
+                     def run = {
                        
             getSelectedTextOrCurrentLine.foreach( recordAndInterpret( _ ))
                                 }
@@ -420,7 +420,7 @@ class EditorPane  extends  JPanel with CustomizableFont {
    private val ggStatus = new JLabel( "Initializing..." )
 
    editorPane      = new JEditorPane() {
-      override protected def processKeyEvent( e: KeyEvent ) {
+      override protected def processKeyEvent( e: KeyEvent ) = {
          super.processKeyEvent( customKeyProcessAction.map( fun => {
             fun.apply( e )
          }) getOrElse e )
@@ -441,10 +441,10 @@ class EditorPane  extends  JPanel with CustomizableFont {
        
   def getInterpreter = scalaExec.Interpreter.GlobalValues.globalInterpreter   // returns the Scala interpreter instance
 
-  def init {
+  def init = {
       // spawn interpreter creation
       (new SwingWorker[ Unit, Unit ] {
-         override def doInBackground {
+         override def doInBackground = {
             
             DefaultSyntaxKit.initKit()
             
@@ -523,7 +523,7 @@ class EditorPane  extends  JPanel with CustomizableFont {
           
           
         
-         override protected def done {
+         override protected def done = {
             ggProgressInvis.setVisible( true )
             ggProgress.setVisible( false )
             editorPane.setContentType( "text/scala" )
@@ -556,9 +556,9 @@ class EditorPane  extends  JPanel with CustomizableFont {
      
       imap.put( executeKeyStroke, " .exec" )
       amap.put( " .exec", new AbstractAction {
-         def actionPerformed( e: ActionEvent ) {
+         def actionPerformed( e: ActionEvent ) = {
                  var r =   new Runnable {
-                     def run {
+                     def run  = {
             getSelectedTextOrCurrentLine.foreach( recordAndInterpret( _ ))
                      }
                    }
@@ -575,7 +575,7 @@ class EditorPane  extends  JPanel with CustomizableFont {
          val name = " .user" + idx
          imap.put( spec._1, name )
          amap.put( name, new AbstractAction {
-            def actionPerformed( e: ActionEvent ) {
+            def actionPerformed( e: ActionEvent ) = {
                spec._2.apply()
             }
          })
@@ -618,11 +618,11 @@ class EditorPane  extends  JPanel with CustomizableFont {
     */
    var bindingsCreator: Option[ Function1[ scala.tools.nsc.interpreter.IMain, Unit ]] = None
 
-   protected def status( s: String ) {
+   protected def status( s: String ) =  {
       ggStatus.setText( s )
    }
 
-   def interpret( code: String ) {
+   def interpret( code: String ) = {
      GlobalValues.scala3Engine.eval(code)
    }
    

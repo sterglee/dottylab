@@ -821,7 +821,7 @@ else {
   // update a single row with index r to have the value v
   // e.g. val x = rand0(3, 4);  x(-1, ::) = 20   ; // set the last row to 20s
   //  x(1, ::)=22.2   // set row 1 to 22.2
- def update(r: Int, colonSymbol:  scala.::.type, v: Double)   {
+ def update(r: Int, colonSymbol:  scala.::.type, v: Double): Unit  = {
    val  row  =  if ( r < 0)  Nrows+r else r   // allow negative indices to take higher numbered rows
    var i = 0
    while (i < Ncols) {
@@ -833,7 +833,7 @@ else {
   
   // update a single column with index c  to have the value v
   // e.g.  val x = rand0(3, 4);  x(::, -1) = 30    // set the last column to 30s
- def update( colonSymbol:  scala.::.type,  c: Int, v: Double)   {
+ def update( colonSymbol:  scala.::.type,  c: Int, v: Double): Unit  = {
    val  col  =  if ( c < 0)  Ncols+c else c   // allow negative idices to take higher numbered columns
    var i = 0
    while (i < Nrows) {
@@ -1040,7 +1040,7 @@ def update( rs: Int, re: Int, cs: Int, ce: Int,  rangeSymbol: scala.::.type, v: 
   
   // update the column c with the contents of the vector v
   // e.g.  val x = rand0(4, 5); val v = vones(4); x(::, 2) = v 
- def update(colonSymbol: scala.::.type, c: Int, v: Vec)  {
+ def update(colonSymbol: scala.::.type, c: Int, v: Vec): Unit  = {
     var  vl = v.length
     if (vl > Nrows)
       vl = Nrows
@@ -1054,7 +1054,7 @@ def update( rs: Int, re: Int, cs: Int, ce: Int,  rangeSymbol: scala.::.type, v: 
  
   // update the row r with the contents of the vector v
   // e.g.  val x = rand0(4, 5);  val v = vones(5);  x(3,  ::) = v
- def update(r: Int, colonSymbol: scala.::.type, v: Vec)  {
+ def update(r: Int, colonSymbol: scala.::.type, v: Vec): Unit  = {
    var vl = v.length
     if (vl > Ncols)
      vl = Ncols
@@ -1068,7 +1068,7 @@ def update( rs: Int, re: Int, cs: Int, ce: Int,  rangeSymbol: scala.::.type, v: 
 
   // update the column c with the contents of the array v
   // e.g.  val x = rand0(4, 5); val v = vones(4); x(::, 2) = v 
- def update(colonSymbol: scala.::.type, c: Int, v: Array[Double])  {
+ def update(colonSymbol: scala.::.type, c: Int, v: Array[Double]): Unit  = {
     var  vl = v.length
     if (vl > Nrows)
       vl = Nrows
@@ -1082,7 +1082,7 @@ def update( rs: Int, re: Int, cs: Int, ce: Int,  rangeSymbol: scala.::.type, v: 
  
   // update the row r with the contents of the array  v
   // e.g.  val x = rand0(4, 5);  val v = vones(5);  x(3,  ::) = v
- def update(r: Int, colonSymbol: scala.::.type, v: Array[Double])  {
+ def update(r: Int, colonSymbol: scala.::.type, v: Array[Double]): Unit = {
    var vl = v.length
     if (vl > Ncols)
      vl = Ncols

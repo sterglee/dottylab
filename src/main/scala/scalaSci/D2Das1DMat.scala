@@ -88,7 +88,7 @@ final def apply(row: Int, col: Int): Double = {
 }
   
   @inline
-final def update(row: Int, col: Int, value: Double)  {
+final def update(row: Int, col: Int, value: Double)  = {
   data(row*Ncols+col) = value
 }
   

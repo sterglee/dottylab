@@ -15,7 +15,7 @@ class Figure(name: String, private var rows_ : Int  = 1, private var cols_ :Int 
   /**Selects the given subplot.  */
   def subplot(i: Int) = selectPlot(i)
 
-  def clearPlot(i: Int) {   // clear the ith plot
+  def clearPlot(i: Int) =  {   // clear the ith plot
     if(i < plots.length) plots(i) = None
     refresh()
   }
@@ -78,7 +78,7 @@ class Figure(name: String, private var rows_ : Int  = 1, private var cols_ :Int 
   }
 
   /** Clears the current figure */
-  def clear() {
+  def clear() = {
     contents.removeAll()
     plots.clear()
     rows = 1
@@ -97,7 +97,7 @@ class Figure(name: String, private var rows_ : Int  = 1, private var cols_ :Int 
     }
 
     SwingUtilities.invokeLater(new Runnable {
-      def run() {
+      def run() = {
         contents.removeAll()
         contents.setLayout(new java.awt.GridLayout(rows,cols))
         for (plot <- plots) {
@@ -110,7 +110,7 @@ class Figure(name: String, private var rows_ : Int  = 1, private var cols_ :Int 
     frame.repaint()
   }
 
-  def drawPlots(g2d : Graphics2D) {
+  def drawPlots(g2d : Graphics2D) = {
     val plotWidth  = contents.getWidth / cols
     val plotHeight = contents.getHeight / rows
     var px = 0; var py = 0
@@ -126,7 +126,7 @@ class Figure(name: String, private var rows_ : Int  = 1, private var cols_ :Int 
   }
 
   /** Saves the current figure at the requested dpi to the given filename. */
-  def saveas(filename : String, dpi : Int = 72) {
+  def saveas(filename : String, dpi : Int = 72) = {
     // make sure figure is visible or saved image will come up empty
     refresh()
 
@@ -155,7 +155,7 @@ class Figure(name: String, private var rows_ : Int  = 1, private var cols_ :Int 
     }
 
     plot listen new Plot.Listener {
-      def refresh(pl: Plot) {
+      def refresh(pl: Plot) = {
         Figure.this.refresh()
       }
     }

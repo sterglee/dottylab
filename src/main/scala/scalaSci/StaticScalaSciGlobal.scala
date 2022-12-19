@@ -4738,7 +4738,7 @@ final def   EJMLDenseMatrixtoDoubleArray( dm: org.ejml.data.DenseMatrix64F) = {
    var ia = einv(a)
    var ii = a*
    */
-final def  einv(A: RichDouble2DArray) {
+final def  einv(A: RichDouble2DArray) =  {
   val  da = new org.ejml.data.DenseMatrix64F(A.getv)
   org.ejml.ops.CommonOps.invert(da)
   new RichDouble2DArray( EJMLDenseMatrixtoDoubleArray(da))

@@ -2,7 +2,7 @@ package scalaSci
 
 class VecExt(n: Int) extends scalaSci.Vec(n)  {
     
-    final def this(v: scalaSci.Vec) {
+    final def this(v: scalaSci.Vec) =  {
         this(v.length)
         for (k<-0 until v.length)
          this(k) = v(k)

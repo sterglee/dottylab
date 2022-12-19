@@ -19,7 +19,7 @@ trait Error
      * @param method   the method where the error occured
      * @param message  the error message
      */
-    def flaw (method: String, message: String)
+    def flaw (method: String, message: String) =
     {
         println ("ERROR @ " + className + "." + method +  ": " + message)
     } // flaw

@@ -23,8 +23,8 @@ object SyntaxHelper {
    def hold(mode: off.type) =  scalaSci.math.plot.plot.hold("off")
    def hold (s: String) =    scalaSci.math.plot.plot.hold(s)
    object hold {
-    def on  {   scalaSci.math.plot.plot.hold("on") }
-    def off  { scalaSci.math.plot.plot.hold("off") }
+    def on  = {   scalaSci.math.plot.plot.hold("on") }
+    def off =  { scalaSci.math.plot.plot.hold("off") }
   }
   
   object all
@@ -32,7 +32,7 @@ object SyntaxHelper {
   def close(str: String) = if (str == "all") scalaSci.math.plot.plot.close("all")
   def close(figId: Int) = scalaSci.math.plot.plot.close(figId)
   object close {
-    def all  { scalaSci.math.plot.plot.close("all")  }
+    def all = { scalaSci.math.plot.plot.close("all")  }
      }
     
 }

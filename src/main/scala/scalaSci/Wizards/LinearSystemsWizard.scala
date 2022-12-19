@@ -32,7 +32,7 @@ def prepareGeneralPanel() = {
  
  val  generalSystemButton = new JButton("General Linear MXN system, A x = b")
  generalSystemButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) =  {
       jtxtpane.setText("""  
 // general solution, A is any scalaSci matrix, b is an one-dimensional double array
 var solution = A.solve(b)
@@ -66,7 +66,7 @@ def prepareApacheCommonsPanel() = {
         
  val  LUDecompositionButton = new JButton("LU Decomposition")
  LUDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""
 
 import  org.apache.commons.math3.linear.LUDecomposition 
@@ -118,7 +118,7 @@ var shouldBeZero2 = a*sol2-b2    // verify the solution
 
  val  QRDecompositionButton = new JButton("QR Decomposition")
  QRDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) =  {
        jtxtpane.setText("""  
 
 import  org.apache.commons.math3.linear.QRDecomposition 
@@ -145,7 +145,7 @@ var shouldBeZero = qrObjQ*qrObjR-a   // this should be zero according to the QR 
 
  val  CholeskyDecompositionButton = new JButton("Cholesky  Decomposition")
  CholeskyDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""  
 
   
@@ -179,7 +179,7 @@ var lA = new RDDA(choleskyObj.getL.getData)  // get the matrix  L of the decompo
 
  val  SingularValueDecompositionButton = new JButton("Singular Value Decomposition")
  SingularValueDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""  
 
 import  org.apache.commons.math3.linear.SingularValueDecomposition
@@ -247,7 +247,7 @@ MTJpanel.add(jscroll)
         
  val  LUDecompositionButton = new JButton("LU Decomposition")
  LUDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""
 import  no.uib.cipr.matrix
 
@@ -281,7 +281,7 @@ var shoulBeZero = a*x.toDoubleArray-b
 
  val  QRDecompositionButton = new JButton("QR Decomposition")
  QRDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""  
 
 import  no.uib.cipr.matrix
@@ -313,7 +313,7 @@ var qpart = dqr.getQ // Q part
 
  val  CholeskyDecompositionButton = new JButton("Cholesky  Decomposition")
  CholeskyDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""  
   
 
@@ -339,7 +339,7 @@ var lA = new RDDA(choleskyObj.getL.getData)  // get the matrix  L of the decompo
 
  val  SingularValueDecompositionButton = new JButton("Singular Value Decomposition")
  SingularValueDecompositionButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""  
 
     """ ) 
@@ -379,7 +379,7 @@ def prepareNRPanel() = {
  
  val  GSButton = new JButton("Gauss-Jordan")
  GSButton.addActionListener( new ActionListener {
-  def actionPerformed( e: ActionEvent ) {
+  def actionPerformed( e: ActionEvent ) = {
        jtxtpane.setText("""
          import com.nr.la.GaussJordan._
         /* Linear equation solution by Gauss-Jordan elimination.
@@ -404,7 +404,7 @@ def prepareNRPanel() = {
 
  val  LUDecompButton = new JButton("LU-Decomposition") 
   LUDecompButton.addActionListener( new ActionListener {
-     def actionPerformed( e: ActionEvent ) {
+     def actionPerformed( e: ActionEvent ) = {
      	  jtxtpane.setText("""
     
     import com.nr.la.LUdcmp
@@ -435,7 +435,7 @@ def prepareNRPanel() = {
 
  val   SVDDecompButton = new JButton("SVD-Decomposition") 
   SVDDecompButton.addActionListener( new ActionListener {
-     def actionPerformed( e: ActionEvent ) {
+     def actionPerformed( e: ActionEvent ) = {
      	  jtxtpane.setText("""
 
     import com.nr.la.SVD

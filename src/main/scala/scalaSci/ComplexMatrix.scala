@@ -913,12 +913,12 @@ override  def  toString(): String = {
   }
   
     // updating a single element of the Complex Matrix
-def  update(n: Int, m: Int, cn: Complex) {
+def  update(n: Int, m: Int, cn: Complex) = {
          v(n)(2*m) = cn.re
          v(n)(2*m+1) =  cn.im 
      }
 
-   def  update(n: Int, m: Int, cn: Array[Double]) {
+   def  update(n: Int, m: Int, cn: Array[Double]) = {
          v(n)(2*m) = cn(0)
          v(n)(2*m+1) =  cn(1) 
      }

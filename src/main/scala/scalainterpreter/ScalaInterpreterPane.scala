@@ -141,7 +141,7 @@ class ScalaInterpreterPane  extends  JPanel with CustomizableFont {
   // the main editor pane for editing
    scalaExec.Interpreter.GlobalValues.editorPane      = new JEditorPane() {
      
-      override protected def processKeyEvent( e: KeyEvent ) {
+      override protected def processKeyEvent( e: KeyEvent ) = {
          super.processKeyEvent( customKeyProcessAction.map( fun => {
             fun.apply( e )
          }) getOrElse e )
@@ -195,7 +195,7 @@ class ScalaInterpreterPane  extends  JPanel with CustomizableFont {
   
 
   
-  def init {
+  def init = {
     
     scalaExec.Interpreter.GlobalValues.editorPane.getDocument().putProperty(javax.swing.text.DefaultEditorKit.EndOfLineStringProperty, "\n")
     
@@ -249,7 +249,7 @@ class ScalaInterpreterPane  extends  JPanel with CustomizableFont {
         */
       // spawn interpreter creation
       (new SwingWorker[ Unit, Unit ] {
-         override def doInBackground {
+         override def doInBackground = {
                  
           DefaultSyntaxKit.initKit()
           
@@ -351,7 +351,7 @@ def interpretImportsForInterpreterType = {
 }
           
         
-         override protected def done {
+         override protected def done ={
             GlobalValues.ggProgressInvis.setVisible( true )
             GlobalValues.ggProgress.setVisible( false )
             scalaExec.Interpreter.GlobalValues.editorPane.setContentType( "text/scala" )
@@ -394,9 +394,9 @@ def interpretImportsForInterpreterType = {
         // define the execution action (triggered with F6)
       imap.put( executeKeyStroke, " .exec" )
       amap.put( " .exec", new AbstractAction {
-         def actionPerformed( e: ActionEvent ) {
+         def actionPerformed( e: ActionEvent ) = {
                  var r =   new Runnable {
-                     def run {
+                     def run  = {
             getSelectedTextOrCurrentLine.foreach( recordAndInterpret( _ ))
                      }
                    }
@@ -443,11 +443,11 @@ def interpretImportsForInterpreterType = {
     */
    var bindingsCreator: Option[ Function1[ scala.tools.nsc.interpreter.IMain, Unit ]] = None
 
-   protected def status( s: String ) {
+   protected def status( s: String ) = {
       ggStatus.setText( s )
    }
 
-   def interpret( code: String ) {
+   def interpret( code: String ) = {
       interpreterVar.foreach( globalInterpreter => {
          status( null )
          try { globalInterpreter.interpret( code ) match {
@@ -471,9 +471,9 @@ def setupKeyActions() = {
       val amap = scalaExec.Interpreter.GlobalValues.editorPane.getActionMap()
       imap.put( executeKeyStroke, " .exec" )
       amap.put( " .exec", new AbstractAction {
-         def actionPerformed( e: ActionEvent ) {
+         def actionPerformed( e: ActionEvent ) = {
                  var r =   new Runnable {
-                     def run {
+                     def run = {
             getSelectedTextOrCurrentLine.foreach( recordAndInterpret( _ ))
                      }
                    }
@@ -486,14 +486,14 @@ def setupKeyActions() = {
         imap.put(KeyStroke.getKeyStroke(KeyEvent.VK_F11, 0), "expandAbbreviation")
         amap.put("expandAbbreviation", new AbstractAction {
             scalaExec.Interpreter.GlobalValues.editorPane.setCursor(ScalaInterpreterPaneGlobals.defaultCursor)
-            def actionPerformed(e: ActionEvent) {
+            def actionPerformed(e: ActionEvent) = {
                scalainterpreter.AbbreviationHandler.detectAndReplaceWordAtCaret
               }
               })
          
     imap.put( KeyStroke.getKeyStroke( KeyEvent.VK_F5, 0), "clearConsole")
     amap.put( "clearConsole",  new AbstractAction {
-             def actionPerformed(e: ActionEvent)  {
+             def actionPerformed(e: ActionEvent) = {
                  scalaExec.Interpreter.GlobalValues.editorPane.setCursor(ScalaInterpreterPaneGlobals.defaultCursor)
                  GlobalValues.consoleOutputWindow.resetText(" "); 
              }
@@ -502,7 +502,7 @@ def setupKeyActions() = {
     
         imap.put(KeyStroke.getKeyStroke( KeyEvent.VK_F9, 0), "executeScala3")
               amap.put("executeScala3", new AbstractAction {
-            def actionPerformed(e:ActionEvent) {
+            def actionPerformed(e:ActionEvent) = {
               var currentText = getSelectedTextOrCurrentLine.get
               println("evaluating "+currentText)
 
@@ -519,7 +519,7 @@ def setupKeyActions() = {
 
           imap.put(KeyStroke.getKeyStroke(KeyEvent.VK_F6, InputEvent.CTRL_MASK), "stop")
       amap.put("stop", new AbstractAction {
-        def actionPerformed(e: ActionEvent)   {
+        def actionPerformed(e: ActionEvent)  = {
           scalaExec.Interpreter.GlobalValues.editorPane.setCursor(ScalaInterpreterPaneGlobals.defaultCursor)
           if (GlobalValues.currentThread != null) {
              println("Stopping current thread")
@@ -535,7 +535,7 @@ def setupKeyActions() = {
 
   imap.put(KeyStroke.getKeyStroke(KeyEvent.VK_F7,  0), "complete")
   amap.put("complete", new AbstractAction {
-    def actionPerformed(e: ActionEvent) {
+    def actionPerformed(e: ActionEvent) = {
     //  new CompletionAction( ScalaInterpreterPaneGlobals.completer).complete()
     }
   }
@@ -546,11 +546,11 @@ def setupKeyActions() = {
       imap.put(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK), "EDTexecute")  
     
       amap.put("EDTexecute", new AbstractAction {
-           def actionPerformed(e:ActionEvent) {
+           def actionPerformed(e:ActionEvent) = {
              
           if (ScalaInterpreterPaneGlobals.commandFuture.isCompleted) {
               javax.swing.SwingUtilities.invokeLater(  new Runnable {
-                     def run {
+                     def run = {
             ScalaInterpreterPaneGlobals.commandFuture = Future 
                 {
                  
@@ -598,10 +598,10 @@ def setupKeyActions() = {
           
     imap.put(KeyStroke.getKeyStroke(KeyEvent.VK_F6, InputEvent.SHIFT_MASK), "execute")
       amap.put("execute", new AbstractAction {
-          def actionPerformed(e:ActionEvent) {
+          def actionPerformed(e:ActionEvent) = {
                    try {
           var r =   new Runnable {
-                     def run {
+                     def run = {
                        
             getSelectedTextOrCurrentLine.foreach( recordAndInterpret( _ ))
                  
@@ -641,7 +641,7 @@ def setupKeyActions() = {
     
       imap.put(KeyStroke.getKeyStroke( KeyEvent.VK_F12, 0), "closePlots")
       amap.put("closePlots", new AbstractAction {
-        def actionPerformed(e: ActionEvent) {
+        def actionPerformed(e: ActionEvent) = {
           scalaSci.math.plot.plot.closeAll()
           }
       })
@@ -657,7 +657,7 @@ def setupKeyActions() = {
                
     imap.put(KeyStroke.getKeyStroke( KeyEvent.VK_F2, 0), "executeToCursor")
     amap.put("executeToCursor", new AbstractAction {
-      def actionPerformed(e: ActionEvent) {
+      def actionPerformed(e: ActionEvent) = {
         var etext = scalaExec.Interpreter.GlobalValues.editorPane.getText
         var  currentTextLen = etext.length
         if (currentTextLen != textLen)   // text altered at the time between F2 clicks
@@ -682,7 +682,7 @@ def setupKeyActions() = {
          
           
                  var r =   new Runnable {
-                     def run {
+                     def  run = {
              recordAndInterpret(textToExec )
                         }
                    }
@@ -696,7 +696,7 @@ def setupKeyActions() = {
          val name = " .user" + idx
          imap.put( spec._1, name )
          amap.put( name, new AbstractAction {
-            def actionPerformed( e: ActionEvent ) {
+            def actionPerformed( e: ActionEvent ) = {
                spec._2.apply()
             }
          })

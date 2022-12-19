@@ -162,7 +162,7 @@ final def this(a: MatChar) = {
  }
     
     // updating a single element of the Matrix
-final def  update(n: Int, m: Int, value: Char) {
+final def  update(n: Int, m: Int, value: Char) = {
          v(n)(m) = value;
    }
 

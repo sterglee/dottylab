@@ -74,6 +74,7 @@ public class FrameView extends JFrame {
                     panel.add(new Plot3DPanel(canvas[i]));
                     setContentPane(panel);
                     pack();
+
                     setSize(defaultFigSizeX, defaultFigSizeY);
                     addWindowListener(new figureClosingAdapter());
                     setVisible(true);

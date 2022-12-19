@@ -1260,7 +1260,7 @@ final def update(lowp:Int,  highp: Int,  allSymbol:  scala.::.type, vr: Vec): Un
   }
 
 // randomizes the contents of the vector
- final def rand() {
+ final def rand() = {
    var  ran = com.nr.test.NRTestUtil.ran  // global ranno generator
    var k=0
    while  (k < length) {

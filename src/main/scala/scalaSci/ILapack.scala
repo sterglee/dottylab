@@ -51,7 +51,7 @@ def ld(n: Int)  =  Math.max(1, n)  // the "leading dimension""
    
  }
  
-  def interchange(r1: Int, r2: Int, P: Array[Array[Double]]  ) {
+  def interchange(r1: Int, r2: Int, P: Array[Array[Double]]  ) = {
     var N = P(0).length
     var buffer = new Array[Double](N)
     var c = 0

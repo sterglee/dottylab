@@ -8,7 +8,7 @@ import scalaExec.Interpreter.GlobalValues
 class inspectClassCompletionListAction() extends javax.swing.AbstractAction() {
    
 
-   override def actionPerformed(  e: ActionEvent ) {
+   override def actionPerformed(  e: ActionEvent )  ={
          
         scalaExec.Interpreter.GlobalValues.inspectClass = true
         scalaExec.Interpreter.GlobalValues.completionIsForSyntaxPane = true  // completion is for JSyntaxPane editor (in order to display the completion popup properly)

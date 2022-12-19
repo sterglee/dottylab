@@ -162,7 +162,7 @@ final def this(a: MatBoolean) = {
  }
     
     // updating a single element of the Matrix
-final def  update(n: Int, m: Int, value: Boolean) {
+final def  update(n: Int, m: Int, value: Boolean) = {
          v(n)(m) = value;
    }
 

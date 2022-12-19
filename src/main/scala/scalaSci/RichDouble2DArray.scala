@@ -903,7 +903,7 @@ override   final def apply(allRowsSymbol: ::.type, colIndices: Array[Int])  = {
   
   // update a single row with index r to have the value v
   // e.g. val x = rand(3, 4);  x(-1, ::) = 20   // set the last row to 20s
-override final def update(r: Int, colonSymbol:  ::.type, v: Double)   {
+override final def update(r: Int, colonSymbol:  ::.type, v: Double)  = {
    val  row  =  if ( r < 0)  Nrows+r else r   // allow negative indices to take higher numbered rows
    var i = 0
    while (i < Ncols) {
@@ -915,7 +915,7 @@ override final def update(r: Int, colonSymbol:  ::.type, v: Double)   {
   
   // update a single column with index c  to have the value v
   // e.g.  val x = rand(3, 4);  x(::, -1) = 30    // set the last column to 30s
- override final def update( colonSymbol:  ::.type,  c: Int, v: Double)   {
+ override final def update( colonSymbol:  ::.type,  c: Int, v: Double)  = {
    val  col  =  if ( c < 0)  Ncols+c else c   // allow negative idices to take higher numbered columns
    var i = 0
    while (i < Nrows) {
@@ -928,7 +928,7 @@ override final def update(r: Int, colonSymbol:  ::.type, v: Double)   {
   
     // update a matrix range to have the value v
   // e.g.  val x = rand(12, 14);  x(1, 3, 2, 6) = 30    // set the last column to 30s
-  override final def update( rs: Int,  re: Int, cs: Int, ce: Int, v: Double)   {
+  override final def update( rs: Int,  re: Int, cs: Int, ce: Int, v: Double) =  {
    var r = rs; var c = cs
      while (r <= re) {
       c = cs
@@ -942,7 +942,7 @@ override final def update(r: Int, colonSymbol:  ::.type, v: Double)   {
 
   // update the column c with the contents of the vector v
   // e.g.  val x = rand(4, 5); val v = vones(4); x(::, 2) = v 
- override  final def update(colonSymbol: ::.type, c: Int, v: Vec)  {
+ override  final def update(colonSymbol: ::.type, c: Int, v: Vec) = {
   var  vl = v.length
     if (vl > Nrows)  // use a part of the vector only to fill the rows
       vl = Nrows
@@ -956,7 +956,7 @@ override final def update(r: Int, colonSymbol:  ::.type, v: Double)   {
  
   // update the row r with the contents of the vector v
   // e.g.  val x = rand(4, 5);  val v = vones(5);  x(3,  ::) = v
- override final def update(r: Int, colonSymbol: ::.type, v: Vec)  {
+ override final def update(r: Int, colonSymbol: ::.type, v: Vec) = {
    var vl = v.length
     if (vl > Ncols)  // use a part of the vector only to fill the columns
      vl = Ncols
@@ -971,7 +971,7 @@ override final def update(r: Int, colonSymbol:  ::.type, v: Double)   {
   
   // update the column c with the contents of the array  v
   // e.g.  val x = rand(4, 5); val v = vones(4); x(::, 2) = v 
- override  final def update(colonSymbol: ::.type, c: Int, v: Array[Double])  {
+ override  final def update(colonSymbol: ::.type, c: Int, v: Array[Double]) = {
   var  vl = v.length
     if (vl > Nrows) // use a part of the array only to fill the rows
       vl = Nrows
@@ -986,7 +986,7 @@ override final def update(r: Int, colonSymbol:  ::.type, v: Double)   {
  
   // update the row r with the contents of the array v
   // e.g.  val x = rand(4, 5);  val v = vones(5);  x(3,  ::) = v
- override final def update(r: Int, colonSymbol: ::.type, v: Array[Double])  {
+ override final def update(r: Int, colonSymbol: ::.type, v: Array[Double]) = {
    var vl = v.length
     if (vl > Ncols)  // use a part of the array only to fill the columns
      vl = Ncols

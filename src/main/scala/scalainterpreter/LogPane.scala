@@ -13,18 +13,18 @@ extends JPanel with CustomizableFont {
    private val textPane   = new JTextArea( rows, columns ) {
       private var totalLength = 0
 
-      override def append( str: String ) {
+      override def append( str: String ) = {
          super.append( str );
          totalLength += str.length
          updateCaret
       }
 
-      override def setText( str: String ) {
+      override def setText( str: String )= {
          super.setText( str )
          totalLength = if( str == null ) 0 else str.length
       }
 
-      private def updateCaret {
+      private def updateCaret ={
          try {
             setCaretPosition( math.max( 0, totalLength - 1 ))
          }
@@ -32,7 +32,7 @@ extends JPanel with CustomizableFont {
       }
    }
 
-   def init {
+   def init = {
       textPane.setFont( createFont )
       textPane.setEditable( false )
       textPane.setLineWrap( true )
@@ -44,17 +44,17 @@ extends JPanel with CustomizableFont {
       add( ggScroll, BorderLayout.CENTER )
    }
 
-   def clear {
+   def clear = {
       textPane.setText( null )
    }
 
    // ---- Writer ----
    object writer extends Writer {
-      def close {}
-      def flush {}
+      def close = {}
+      def flush = {}
 
       @throws( classOf[ IOException ])
-      def write( ch: Array[ Char ], off: Int, len: Int ) {
+      def write( ch: Array[ Char ], off: Int, len: Int ) = {
          val str = new String( ch, off, len );
          textPane.append( str )
       }
@@ -63,13 +63,13 @@ extends JPanel with CustomizableFont {
    // ---- Writer ----
    object outputStream extends OutputStream {
       @throws( classOf[ IOException ])
-      override def write( b: Array[ Byte ], off: Int, len: Int ) {
+      override def write( b: Array[ Byte ], off: Int, len: Int ) = {
          val str = new String( b, off, len );
          textPane.append( str )
       }
 
       @throws( classOf[ IOException ])
-      def write( b: Int ) {
+      def write( b: Int ) = {
          write( Array( b.toByte ), 0, 1 )
       }
    }

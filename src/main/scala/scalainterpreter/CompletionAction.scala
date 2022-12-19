@@ -14,7 +14,7 @@ import scala.jdk.CollectionConverters
 //  the action triggered with the F7 key within the JSyntaxPane
 class CompletionAction(  ) {
 
-  def complete() {
+  def complete() = {
 
     var posAutoCompletion = -1
 
